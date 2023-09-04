@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contosoair-deploy
+  labels:
+    app: contosoair-deploy
+  namespace: namespace-workflow-1693843705949
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: contosoair-deploy
+  template:
+    metadata:
+      labels:
+        app: contosoair-deploy
+    spec:
+      containers:
+        - name: contosoair-deploy
+          image: cransbayfvuezg2.azurecr.io/image-workflow-1693843705949:latest
+          ports:
+            - containerPort: 3000
