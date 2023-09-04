@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contosoair10-cicd2
+  labels:
+    app: contosoair10-cicd2
+  namespace: namespace-workflow-1693843854779
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: contosoair10-cicd2
+  template:
+    metadata:
+      labels:
+        app: contosoair10-cicd2
+    spec:
+      containers:
+        - name: contosoair10-cicd2
+          image: acrworkflow1693843854779.azurecr.io/image-workflow-1693843854779:latest
+          ports:
+            - containerPort: 3000
